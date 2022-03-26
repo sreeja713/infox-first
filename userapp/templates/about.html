@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row message-div">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="container text-center alert-success p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="True">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row heading-div">
+        <div class="col-12">
+            <h2 class="text-center py-5">
+                WEB DEVELOPMENT
+            </h2>
+        </div>
+    </div>
+    <div class="row image-div">
+        <div class="col-12 ml-auto pb-5 ">
+            
+            <img src="{% static 'userapp/image/software.jpeg'%}" alt="software" width="100%">
+            
+        </div>
+        <div class="row">
+            <div class="col-10 m-auto " style="font-size: large;">
+                <p>Web development is the most successful tool when it comes to an online business.
+                
+                There are millions of online businesses over the internet that are growing on web development.
+                
+                So, choosing a unique website can get you on the top level.
+                
+                If your business is new and you want to grow your business, you have to move it on the website as well. This is because
+                website development services offer you to get countless benefits for your business.
+                
+                Today, more than 75% of people are growing their business on the internet and most of them are successful. The reason
+                behind this is the audience on the internet.
+                
+                All in all, people use various sources to search for products on the internet.
+                
+                If you make your website attractive, your business pace will increase rapidly.
+                
+                There are some aspects that describe how website development is helpful for your growing business.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row logout-div">
+        <div class="col-12 text-center py-5">
+            <a href="{% url 'logout' %}" rol="button"
+                style="background-color:#1f8617; color:antiquewhite;border: none;font-size: 15px;padding: 15px 25px;">Logout</a>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+

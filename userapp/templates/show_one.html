@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid rgb(87, 86, 86);
+        text-align: center;
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgba(161, 221, 165, 0.33);
+    }
+
+    th {
+        padding: 15px;
+        background-color: #2f8e2f9c;
+        font-size: large;
+    }
+
+    td {
+        padding: 10px;
+    }
+</style>
+<div class="container full-div">
+    <div class="row mb-5" style="margin-top: 10%;">
+        <div class="col-12 text-center">
+            <h2>
+                Student Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="container text-center alert-success p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="True">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="table-div col-12">
+                <table style="width:100%">
+
+
+                    <tr>
+                        <th>ID</th>
+
+                        <th>Student Name</th>
+                        <th>Address</th>
+                        <th>Age</th>
+                        <th>Join date</th>
+                        <th>Course</th>
+                        <th>fee</th>
+                    </tr>
+
+                    {% for std in a2 %}
+                    <tr>
+                        <td>{{std.id}}</td>
+
+                        <td>{{std.std_name}}</td>
+                        <td>{{std.std_address}}</td>
+                        <td>{{std.std_age}}</td>
+                        <td>{{std.join_date}}</td>
+                        <td>{{std.course.course_name}}</td>
+                        <td>{{std.course.fee}}</td>
+
+
+
+
+
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

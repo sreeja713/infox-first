@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container full-div mt-5">
+    <div class="row message-div">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="container text-center alert-success p-0">
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="True">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="row signup-form-div">
+        <div class="col-10 ml-auto">
+            <div class="form-div row ">
+                <form action="{% url 'usercreate'%}" method="POST" style="width: 75%;" class="form-design">
+                    {% csrf_token %}
+                    <div class="row heading-div mt-5">
+                        <div class="col-12 text-center">
+                            <h2>Registration</h2>
+                        </div>
+                    </div>
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="text" class="form-control w-100" id="fname" name="fname" placeholder="First Name">
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="text" id="lname" class="form-control" name="lname" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                        </div>
+                    </div>
+                    
+                    <div class="row pt-3 content-div">
+                        <div class="col-8 m-auto">
+                            <input type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" name="cpassword">
+                        </div>
+                    </div>
+                    
+                        <div class="row  pt-5 content-div text-center">
+                            <div class="col-8 m-auto">
+                                <input type="submit" value="Register" 
+                                    style="background-color:#1f8617; color:antiquewhite;border: none;font-size: 15px;padding: 15px 60px;">
+                            </div>
+                        </div>
+                        <div class="row pt-3 mb-5 content-div text-center">
+                            <div class="col-12 ">
+                                <p class="text-dark " style="font-size: medium;">Already a member.<a href="{% url 'loginpage'%}">Login</a></p>
+                            </div>
+                        </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
