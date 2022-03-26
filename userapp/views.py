@@ -107,6 +107,7 @@ def add_student(request):
     age=request.POST['age']
     jdate=request.POST['jdate']
     sel1=request.POST['sel']
+    print("\n",sel1,"\n")
     course1=course.objects.get(id=sel1)
     std=student(std_name=sname,std_address=address,std_age=age,join_date=jdate,course=course1)
     std.save()
@@ -126,12 +127,6 @@ def show_details(request):
     return render(request,'show_details.html',{'a1':a1})
     # stud=student.objects.all()
 
-# @login_required(login_url='custom_login')
-# def showone(request):
-#     username_data=request.POST['username']
-#     print(username_data)
-#     curent_user=request.user
-#     if curent_user==username_data:
-#         a2=student.objects.get(curent_user=student.sname).select_related('course')
-#         return render(request,'show_one.html',{'a2':a2})
-    
+@login_required(login_url='custom_login')
+def contact(request):
+    return render(request,'contact.html')
